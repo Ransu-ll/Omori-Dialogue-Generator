@@ -1,0 +1,182 @@
+@font-face {
+    font-family: "OMORI_MAIN";
+    src: url("fonts/OMORI_GAME.ttf") format("truetype-variations");
+}
+
+@font-face {
+    font-family: "OMORI_DISTURBED";
+    src: url("fonts/OMORI_GAME2.ttf") format("truetype-variations");
+}
+
+body {
+    background-color: grey;
+    color: white;
+    font-family: 'OMORI_MAIN';
+    font-size: 28px;
+}
+
+h1 {
+    font-family: 'OMORI_MAIN', Arial, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 60px;
+    margin: 0.5vw;
+}
+
+input, textarea {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+textarea {
+    resize: none;
+}
+
+ol {
+    margin-top: 0;
+    margin-right: 10px;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+
+canvas {
+    display: none;
+    margin: 10px 0;
+}
+
+a {
+    color: white;
+}
+
+/* Sections */
+
+#info-box {
+    padding: 5px 10px;
+    font-size: 22px;
+    display: block;
+}
+
+#toggle-box-info {
+    display: none;
+}
+
+#info-seperator {
+    width: 608px;
+    margin-left: 0;
+}
+
+.speech-frame {
+    width: 608px;
+    display: grid;
+}
+
+.wrap-white {
+    border-width: 3px;
+    border-style: solid;
+    border-color: white;
+    display: inline-flex;
+}
+
+.wrap-black {
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    display: inline-flex;
+}
+
+.box {
+    background-color: black;
+    color: white;
+}
+
+.settings {
+  font-size: 20px;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+}
+
+/*******/
+
+.top-half {
+    height: 124px;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    display: grid;
+}
+
+.char-name-wrapper {
+    grid-column-start: 1;
+    grid-row-start: 1;
+    height: 44px;
+    display: grid;
+    justify-content: left;
+    align-self: flex-end;
+    padding-bottom: 4px;
+}
+
+.char-name {
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-bottom: 5px;
+    padding-top: 0;
+    width: 237px;
+}
+
+.char-pic-wrapper {
+    grid-column-start: 2;
+    grid-row-start: 1;
+    display: grid;
+    justify-content: right;
+    align-content: flex-end;
+    padding-bottom: 4px;
+}
+
+.char-pic {
+    width: 104px;
+    height: 104px;
+    padding: 1px;
+}
+
+/* DO NOT TOUCH THIS FOR POSITIONING */
+.char-pic-button {
+    position: absolute;
+    margin-top: 3px;
+    margin-left: 3px;
+    width: 106px;
+    height: 106px;
+    opacity: 0;
+    /* border-style: hidden; */
+}
+
+
+/*******/
+
+.bottom-half {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 3;
+}
+
+.wrap-black .dialogue-box {
+    width: 584px;
+    height: 96px;
+}
+
+.dialogue-box {
+    padding-left: 14px;
+    padding-top: 7px;
+    line-height: 30px;
+    height: 95px !important;
+    overflow: hidden;
+}
+
+/*******/
+.images img {
+    display: none;
+}
