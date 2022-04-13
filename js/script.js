@@ -71,3 +71,10 @@ function displayDownload(identifier) {
     let downloadButton = document.getElementById(identifier);
     downloadButton.style.display = 'block';
 };
+
+function downloadImage(idCanvas, idButton) {
+    let canvas = document.getElementById(idCanvas);
+    let downloadButton = document.getElementById(idButton);
+    let image = canvas.toDataURL("image/png");
+    downloadButton.href =
+}
