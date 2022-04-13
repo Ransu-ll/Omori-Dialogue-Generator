@@ -21,11 +21,11 @@ instructions found on the website)
     * Character name and dialogue are simple!  
       Just click into their boxes and type!
     * Assuming portraits are enabled, just
-click into the box and a file prompt
-will open!
+      click into the box and a file prompt
+      will open!
 3. Press the long "render" button
 4. Get the image!
-    * Right click the image and download, or
+    * Press the large download button that will appear, or
     * Right click and copy image to clipboard!
 5. And you should be done!
 

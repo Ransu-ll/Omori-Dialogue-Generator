@@ -180,3 +180,7 @@ a {
 .images img {
     display: none;
 }
+
+.download {
+    display: none;
+}

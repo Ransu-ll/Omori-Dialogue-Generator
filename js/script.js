@@ -46,11 +46,18 @@ function toggleText(idCheckbox, idTextarea) {
 
 function clearFrame(identifier) {
   let frame = document.getElementById(identifier);
+  // The below needs to be refactored at some point, OH GOD
+  let inputList = frame.getElementsByTagName('input');
+  let charName = inputList[4];
+  let download = inputList[7];
+  // End of refactor section
   let image = frame.getElementsByTagName('img')[0];
   let canvas = frame.getElementsByTagName('canvas')[0];
+
   frame.reset();
   image.src = "https://via.placeholder.com/106/000000?text=click+me!";
   canvas.style.display = "none";
+  download.style.display = "none";
 
 };
 
@@ -58,4 +65,9 @@ function displayPortrait(event, identifier) {
     // Adapted from https://www.webtrickshome.com/forum/how-to-display-uploaded-image-in-html-using-javascript, by Jiwan Thapa
     let image = document.getElementById(identifier);
     image.src = URL.createObjectURL(event.target.files[0])
+};
+
+function displayDownload(identifier) {
+    let downloadButton = document.getElementById(identifier);
+    downloadButton.style.display = 'block';
 };
