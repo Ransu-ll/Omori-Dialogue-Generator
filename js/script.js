@@ -76,9 +76,5 @@ function downloadImage(idCanvas, idButton) {
     let canvas = document.getElementById(idCanvas);
     let downloadButton = document.getElementById(idButton);
     let image = canvas.toDataURL("image/png");
-<<<<<<< HEAD
     downloadButton.href = image;
-=======
-    downloadButton.href =
->>>>>>> 64acdea67d793a002a66f3387682cf03d4f2acda
 }
