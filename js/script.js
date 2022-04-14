@@ -27,7 +27,7 @@ function togglePortrait(idCheckbox, idPortrait) {
 
 function clearPortrait(identifier) {
     let image = document.getElementById(identifier);
-    image.src = "https://via.placeholder.com/106/000000?text=click+me!";
+    image.src = "";
     image.nextElementSibling.value = null
 };
 
@@ -49,7 +49,7 @@ function clearFrame(identifier) {
   // The below needs to be refactored at some point, OH GOD
   let inputList = frame.getElementsByTagName('input');
   let charName = inputList[4];
-  let download = inputList[7];
+  let download = frame.getElementsByTagName('a')[0];
   // End of refactor section
   let image = frame.getElementsByTagName('img')[0];
   let canvas = frame.getElementsByTagName('canvas')[0];
@@ -71,10 +71,3 @@ function displayDownload(identifier) {
     let downloadButton = document.getElementById(identifier);
     downloadButton.style.display = 'block';
 };
-
-function downloadImage(idCanvas, idButton) {
-    let canvas = document.getElementById(idCanvas);
-    let downloadButton = document.getElementById(idButton);
-    let image = canvas.toDataURL("image/png");
-    downloadButton.href = image;
-}

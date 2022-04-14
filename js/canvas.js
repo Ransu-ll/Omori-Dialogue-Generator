@@ -5,15 +5,18 @@ document.fonts.add(normalFont);
 document.fonts.add(disturbedFont);
 console.log("Fonts loaded");
 
-
+// Cursed workarounds.
 const img_dialogue = new Image();
-img_dialogue.src = "./imgs/omoritemplate_dialogue.png";
+img_dialogue.crossOrigin = "anonymous";
+img_dialogue.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAmAAAABwCAYAAAC5IsxiAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAI1SURBVHhe7dmxDcMwDABBMfvv7Ci2q6SNv7oDBFAbPMhZax37AQAQOQNsu34AADxqZtbrngEAiAgwAIDYzwnysxYDAOB/vlvLBgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAIDb7Hdv1AwDgUTNjAwYAUBNgAACx8wR5jQAAPG+tN+QPEde1pEOrAAAAAElFTkSuQmCC";
+
 const img_portrait = new Image();
-img_portrait.src = "./imgs/omoritemplate_portrait.png";
+img_portrait.crossOrigin = "anonymous";
+img_portrait.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHIAAAByCAYAAACP3YV9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE+SURBVHhe7dTBDQIxDADBmP57hnDHCxogqxkpkvNe2bPWeu7H4a6Q2/3jSDOzHp+ZwwkZ8XNa32vK//tuZiMjhIwQMkLICCEjhIwQMkLICCEjhIwQMkLICCEjhIwQMkLICCEjhIwQMkLICCEjhIwQMkLICCEjhIwQMkLICCEjhIwQMkLICCEjhIwQMkLICCEjhIwQMkLICCEjhIwQMkLICCEjhIwQMkLICCEjhIwQMkLICCEjhIwQMkLICCEjhIwQMkLICCEjhIwQMkLICCEjhIwQMkLICCEjhIwQMkLICCEjhIwQMkLICCEjhIwQMkLICCEjhIwQMkLICCEjhIwQMkLICCEjhIwQMkLICCEjhIwQMkLICCEjhIwQMkLICCEjhIwQMkLICCEjZr/ndv840szYyAohI67Teo+ca60X0ncR2/R13icAAAAASUVORK5CYII=";
 
 // TODO: make this modular
 
-function renderCanvas(idFrame) {
+function renderCanvas(idFrame, idDownload) {
     // // Compatibility w/ Firefox
     let textarea = document.getElementsByTagName("textarea")[0];
     let familyFont =  window.getComputedStyle(textarea, 'font-family'). // NOT a typo
@@ -22,7 +25,7 @@ function renderCanvas(idFrame) {
 
     const frame = document.getElementById(idFrame);
     const exampleParagraph = frame.getElementsByTagName("textarea")[0];
-    const canvas = frame.getElementsByTagName("canvas")[0];
+    let canvas = frame.getElementsByTagName("canvas")[0];
     debugger;
     canvas.style.display = "block";
     debugger;
@@ -72,13 +75,20 @@ function renderCanvas(idFrame) {
     // Load textarea
     let dialogue = document.getElementsByClassName("dialogue-box")[0].value;
     disturbedFont.load().then(function() {
-        // I HAVE NO IDEA WHY I DON'T NEED TO DO THIS WITH NORMAL FONT
-        // THIS HURTS MY BRAIN
+        // Must load this probably because it isn't loaded initially
         if (document.getElementById("toggle_disturbed_0").checked) {
             ctx.font = "28px OMORI_DISTURBED";
+        } else {
+            ctx.font = "28px OMORI_MAIN";
         }
+        ctx.fillStyle = "white";
         ctx.fillText(dialogue, 18, 150);
     });
+
+    let downloadLink = document.getElementById(idDownload);
+    canvas = frame.getElementsByTagName("canvas")[0];
+    downloadLink.download = "image.png";
+    downloadLink.href = canvas.toDataURL("image/png");
 
 
     /*

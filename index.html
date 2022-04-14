@@ -91,7 +91,7 @@
             </div>
             <div class="char-pic-wrapper">
                 <div class="wrap-black">
-                    <img id="char_img_0" src="https://via.placeholder.com/106/000000?text=click+me!" class="wrap-white char-pic box">
+                    <img id="char_img_0" src="" class="wrap-white char-pic box">
                     <input type="file" name="select-character" class="char-pic-button" onchange="displayPortrait(event, 'char_img_0')" accept="image/*">
                 </div>
             </div>
@@ -102,9 +102,9 @@
             </div>
         </div>
         <br>
-        <input type="button" name="render" value="Render! (output will appear below)" onclick="renderCanvas('frame_0'); displayDownload('download_0')">
+        <input type="button" name="render" value="Render! (output will appear below)" onclick="renderCanvas('frame_0', 'download_0'); displayDownload('download_0')">
         <canvas id="output_0" width="608" height="230"></canvas>
-        <input class="download" id="download_0" type="button" name="download" value="Download Image!" onclick="downloadImage('output_0', 'download_0')">
+        <a href="#" class="download" id="download_0" target="_blank">Download Image</a>
     </form>
 
 </body>
