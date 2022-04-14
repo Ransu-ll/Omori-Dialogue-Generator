@@ -27,7 +27,7 @@ function togglePortrait(idCheckbox, idPortrait) {
 
 function clearPortrait(identifier) {
     let image = document.getElementById(identifier);
-    image.src = "";
+    image.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
     image.nextElementSibling.value = null
 };
 
