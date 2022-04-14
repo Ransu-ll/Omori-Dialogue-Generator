@@ -14,12 +14,12 @@ game, allowing for easier generation of memes and other dialogue that were
 *totally* said in game!
 
 ## How do I use it?
-Head on over to the [website](https://ransu-ll.github.io/Omori-Dialogue-Generator/), and then follow the instructions (similar to
-instructions found on the website)
+Head on over to the [website](https://ransu-ll.github.io/Omori-Dialogue-Generator/),
+and then follow the instructions (similar to instructions found on the website)
 1. Select the desired settings
 2. Edit the contents of each of the boxes
     * Character name and dialogue are simple!  
-      Just click into their boxes and type!
+      Just click into their boxes and type! Any 106px by 106px image should do.
     * Assuming portraits are enabled, just
       click into the box and a file prompt
       will open!
