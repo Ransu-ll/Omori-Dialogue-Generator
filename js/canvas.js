@@ -74,20 +74,22 @@ function renderCanvas(idFrame, idDownload) {
 
     // Load textarea
     let dialogue = document.getElementsByClassName("dialogue-box")[0].value;
-    disturbedFont.load().then(function() {
-        // Must load this probably because it isn't loaded initially
-        if (document.getElementById("toggle_disturbed_0").checked) {
+
+    // Had to be explicit here with everthing, otherwise dialogue would just
+    // refuse to render.
+    ctx.fillStyle = "white";
+    if (document.getElementById("toggle_disturbed_0").checked) {
+        disturbedFont.load().then(function() {
             ctx.font = "28px OMORI_DISTURBED";
-        } else {
-            ctx.font = "28px OMORI_MAIN";
-        }
-        ctx.fillStyle = "white";
+            ctx.fillText(dialogue, 18, 150);
+        });
+    } else {
+        ctx.font = "28px OMORI_MAIN"
         ctx.fillText(dialogue, 18, 150);
-    });
+        }
 
     let downloadLink = document.getElementById(idDownload);
     canvas = frame.getElementsByTagName("canvas")[0];
-    downloadLink.download = "image.png";
     downloadLink.href = canvas.toDataURL("image/png");
 
 
