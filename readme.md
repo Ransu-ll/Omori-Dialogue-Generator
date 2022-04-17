@@ -23,6 +23,7 @@ and then follow the instructions (similar to instructions found on the website)
       click into the box and a file prompt
       will open!  
       Any 106px by 106px image should do.
+      [Download the images folder from this repository](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FRansu-ll%2FOmori-Dialogue-Generator%2Ftree%2Fmaster%2FCharacter%2520Images)
     * Dialogue is a little harder, however! Ensure that you press enter if your
       dialogue takes up more than one line to allow it to render properly
       (unless you like squished text).
