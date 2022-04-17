@@ -74,7 +74,7 @@ function renderCanvas(idFrame, idDownload) {
     function insertDialogue(context, textToSplit) {
         let yBase = 150;
         for (let i = 0; i < textToSplit.length; i++) {
-        context.fillText(textToSplit[i], 18, yBase, 585);
+        context.fillText(textToSplit[i], 18, yBase, 568);
         yBase += 29;
         };
     };
@@ -85,11 +85,11 @@ function renderCanvas(idFrame, idDownload) {
     if (document.getElementById("toggle_disturbed_0").checked) {
         disturbedFont.load().then(function() {
             ctx.font = "28px OMORI_DISTURBED";
-            ctx.fillText(dialogue, 18, 150);
+            insertDialogue(ctx, splitDialogue);
         });
     } else {
         ctx.font = "28px OMORI_MAIN";
-        ctx.fillText(dialogue, 18, 150);
+        insertDialogue(ctx, splitDialogue);
     }
 
     let downloadLink = document.getElementById(idDownload);
