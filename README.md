@@ -44,5 +44,6 @@ and then follow the instructions (similar to instructions found on the website)
 ## Copyright
 All image assets found under the Character Images folder belong to OMOCAT and I do not claim to own any of these assets.  
 The only asset I modified was the icon used for the website.
+For more information on the licensing, see [the license](LICENSE.md).
 
 The OMORI game website can be found here: https://omori-game.com/
