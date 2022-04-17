@@ -28,10 +28,6 @@ input, textarea {
     font-size: inherit;
 }
 
-textarea {
-    resize: none;
-}
-
 ol {
     margin-top: 0;
     margin-right: 10px;
@@ -170,10 +166,12 @@ a {
 
 .dialogue-box {
     padding-left: 14px;
+    padding-right: 14px;
     padding-top: 7px;
     line-height: 30px;
     height: 95px !important;
     overflow: hidden;
+    resize: none;
 }
 
 /*******/
