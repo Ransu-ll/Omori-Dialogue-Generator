@@ -40,6 +40,8 @@ and then follow the instructions (similar to instructions found on the website)
 ![Sunny](https://user-images.githubusercontent.com/59227493/163705580-fb6dc6cd-ba0a-434b-bc09-795038e55d2f.png)
 ![Noises](https://user-images.githubusercontent.com/59227493/163705610-342524ff-ad92-4717-9340-285967b147ad.png)
 
+## Contributing
+This repository is open to contributions!
 
 ## Copyright
 All image assets found under the Character Images folder belong to OMOCAT and I do not claim to own any of these assets.  
