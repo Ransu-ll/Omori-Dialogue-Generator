@@ -6,7 +6,7 @@ document.fonts.add(disturbedFont);
 console.log("Fonts loaded");
 
 // Cursed workarounds - the dialogue boxes and portrait boxes respectively.
-// This is needed to prevent issues with toDataURL DOM issues ("tainted canvas") 
+// This is needed to prevent issues with toDataURL DOM issues ("tainted canvas")
 const img_dialogue = new Image();
 img_dialogue.crossOrigin = "anonymous";
 img_dialogue.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAmAAAABwCAYAAAC5IsxiAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAI1SURBVHhe7dmxDcMwDABBMfvv7Ci2q6SNv7oDBFAbPMhZax37AQAQOQNsu34AADxqZtbrngEAiAgwAIDYzwnysxYDAOB/vlvLBgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAICbAAABiAgwAIDb7Hdv1AwDgUTNjAwYAUBNgAACx8wR5jQAAPG+tN+QPEde1pEOrAAAAAElFTkSuQmCC";
@@ -76,6 +76,9 @@ function renderCanvas(idFrame, idDownload) {
     // Load textarea
     let dialogue = document.getElementsByClassName("dialogue-box")[0].value;
 
+    // 29px between lines
+    splitDialogue = dialogue.split("\n");
+
     // Had to be explicit here with everthing, otherwise dialogue would just
     // refuse to render.
     ctx.fillStyle = "white";
@@ -85,7 +88,7 @@ function renderCanvas(idFrame, idDownload) {
             ctx.fillText(dialogue, 18, 150);
         });
     } else {
-        ctx.font = "28px OMORI_MAIN"
+        ctx.font = "28px OMORI_MAIN";
         ctx.fillText(dialogue, 18, 150);
         }
 
