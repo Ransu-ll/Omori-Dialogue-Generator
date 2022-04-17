@@ -27,9 +27,7 @@ function renderCanvas(idFrame, idDownload) {
     const frame = document.getElementById(idFrame);
     const exampleParagraph = frame.getElementsByTagName("textarea")[0];
     let canvas = frame.getElementsByTagName("canvas")[0];
-    debugger;
     canvas.style.display = "block";
-    debugger;
     let ctx = canvas.getContext("2d");
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     let img_char = new Image();
@@ -52,17 +50,13 @@ function renderCanvas(idFrame, idDownload) {
     let a = ctx.measureText(charName)
     let lengthOfCharName = a.width;
     let fullRectangleWidth = lengthOfCharName + 24;
-    debugger
 
     // black outside
     ctx.fillStyle = "black";
     ctx.fillRect(0, 70, fullRectangleWidth, 44);
-
-    // white outside 71, 69, 63
+    // white outside
     ctx.fillStyle = "white";
     ctx.fillRect(1, 71, fullRectangleWidth-2, 42);
-
-
     // black inside
     ctx.fillStyle = "black";
     ctx.fillRect(4, 74, fullRectangleWidth-8, 36);
@@ -71,13 +65,19 @@ function renderCanvas(idFrame, idDownload) {
     ctx.fillStyle = "white";
     ctx.fillText(charName, 12, 96);
 
-
-
     // Load textarea
     let dialogue = document.getElementsByClassName("dialogue-box")[0].value;
+    let splitDialogue = dialogue.split("\n");
 
     // 29px between lines
-    splitDialogue = dialogue.split("\n");
+    // max 585px
+    function insertDialogue(context, textToSplit) {
+        let yBase = 150;
+        for (let i = 0; i < textToSplit.length; i++) {
+        context.fillText(textToSplit[i], 18, yBase, 585);
+        yBase += 29;
+        };
+    };
 
     // Had to be explicit here with everthing, otherwise dialogue would just
     // refuse to render.
@@ -90,7 +90,7 @@ function renderCanvas(idFrame, idDownload) {
     } else {
         ctx.font = "28px OMORI_MAIN";
         ctx.fillText(dialogue, 18, 150);
-        }
+    }
 
     let downloadLink = document.getElementById(idDownload);
     canvas = frame.getElementsByTagName("canvas")[0];
