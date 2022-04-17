@@ -35,8 +35,14 @@ and then follow the instructions (similar to instructions found on the website)
     * Right click and copy image to clipboard!
 5. And you should be done!
 
+## Some examples!
+![Canon](https://user-images.githubusercontent.com/59227493/163705424-d9a7d8c8-612c-4b36-80cc-076cfd358363.png)
+![Sunny](https://user-images.githubusercontent.com/59227493/163705580-fb6dc6cd-ba0a-434b-bc09-795038e55d2f.png)
+![Noises](https://user-images.githubusercontent.com/59227493/163705610-342524ff-ad92-4717-9340-285967b147ad.png)
+
+
 ## Copyright
-All image assets belong to OMOCAT and I do not claim to own any of these assets.  
+All image assets found under the Character Images folder belong to OMOCAT and I do not claim to own any of these assets.  
 The only asset I modified was the icon used for the website.
 
 The OMORI game website can be found here: https://omori-game.com/
