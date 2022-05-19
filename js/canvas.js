@@ -18,14 +18,8 @@ img_portrait.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHIAAAByCAYAAA
 // TODO: make this modular
 
 function renderCanvas(idFrame, idDownload) {
-    // // Compatibility w/ Firefox
-    let textarea = document.getElementsByTagName("textarea")[0];
-    let familyFont =  window.getComputedStyle(textarea, 'font-family'). // NOT a typo
-    getPropertyValue('font-family').replace(/["]+/g, '');
-
 
     const frame = document.getElementById(idFrame);
-    const exampleParagraph = frame.getElementsByTagName("textarea")[0];
     let canvas = frame.getElementsByTagName("canvas")[0];
     canvas.style.display = "block";
     let ctx = canvas.getContext("2d");
