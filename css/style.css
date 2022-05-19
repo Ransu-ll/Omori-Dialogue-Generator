@@ -53,6 +53,7 @@ a {
     padding: 5px 10px;
     font-size: 22px;
     display: block;
+    width: 400px;
 }
 
 #toggle-box-info {
