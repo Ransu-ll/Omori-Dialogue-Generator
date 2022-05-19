@@ -78,6 +78,11 @@ function renderCanvas(idFrame, idDownload) {
         yBase += 29;
         };
     };
+    function changeDownloadLink() {
+      let downloadLink = document.getElementById(idDownload);
+      canvas = frame.getElementsByTagName("canvas")[0];
+      downloadLink.href = canvas.toDataURL("image/png");
+    }
 
     // Had to be explicit here with everthing, otherwise dialogue would just
     // refuse to render.
@@ -86,15 +91,14 @@ function renderCanvas(idFrame, idDownload) {
         disturbedFont.load().then(function() {
             ctx.font = "28px OMORI_DISTURBED";
             insertDialogue(ctx, splitDialogue);
+            changeDownloadLink();
         });
     } else {
         ctx.font = "28px OMORI_MAIN";
         insertDialogue(ctx, splitDialogue);
+        changeDownloadLink();
     }
 
-    let downloadLink = document.getElementById(idDownload);
-    canvas = frame.getElementsByTagName("canvas")[0];
-    downloadLink.href = canvas.toDataURL("image/png");
 
 
     /*
