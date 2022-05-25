@@ -2,125 +2,126 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Omori Dialogue Generator</title>
-    <link rel="stylesheet" href="css/style.css" type="text/css">
-    <link rel="icon" href="imgs/favicon.ico">
-    <script type="text/javascript" src="js/script.js"></script>
-    <script type="text/javascript" src="js/canvas.js"></script>
+  <meta charset="UTF-8">
+  <title>Omori Dialogue Generator</title>
+  <link rel="stylesheet" href="css/style.css" type="text/css">
+  <link rel="icon" href="imgs/favicon.ico">
+  <script type="text/javascript" src="js/script.js"></script>
+  <script type="text/javascript" src="js/canvas.js"></script>
 </head>
 
 <body>
-    <h1 id="title">Omori Script Generator</h1>
-    <div class="wrap-black">
-        <div class="wrap-white box" id="info-box">
-            <a id="toggle-link-info" href="#" onclick="toggleInfo('toggle-box-info', 'toggle-link-info')">
-                How to use? (show more)
-            </a>
-            <div id="toggle-box-info">
-                <ol>
-                    <li>Select the desired settings below</li>
+  <h1 id="title">Omori Script Generator</h1>
+  <div class="wrap-black">
+    <div class="wrap-white box" id="info-box">
+      <a id="toggle-link-info" href="#" onclick="toggleInfo('toggle-box-info', 'toggle-link-info')">
+        How to use? (show more)
+      </a>
+      <div id="toggle-box-info">
+        <ol>
+          <li>Select the desired settings below</li>
 
-                    <li>Edit the contents of each of the boxes</li>
-                    <ul>
-                        <li>Character name is simple enough!
-                            Just click on it and edit.
-                        </li>
+          <li>Edit the contents of each of the boxes</li>
+          <ul>
+            <li>Character name is simple enough!
+              Just click on it and edit.
+            </li>
 
-                        <li>Assuming portraits are enabled, just
-                            click into the box and a file prompt
-                            will open! You can find pictures to
-                            use via the
-                            <a href="https://github.com/Ransu-ll/Omori-Dialogue-Generator" target="_blank">
-                              GitHub repository
-                            </a>
-                            and download the images you want to
-                            use! Any 106px x 106px is ideal.
-                            To make it easier, you can
-                            <a href="https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FRansu-ll%2FOmori-Dialogue-Generator%2Ftree%2Fmaster%2FCharacter%2520Images">
-                              download the folder here.
-                            </a>
-                        </li>
-                        <li>
-                            Dialogue is a little harder, however!
+            <li>Assuming portraits are enabled, just
+              click into the box and a file prompt
+              will open! You can find pictures to
+              use via the
+              <a href="https://github.com/Ransu-ll/Omori-Dialogue-Generator" target="_blank">
+                GitHub repository
+              </a>
+              and download the images you want to
+              use! Any 106px x 106px is ideal.
+              To make it easier, you can
+              <a href="https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FRansu-ll%2FOmori-Dialogue-Generator%2Ftree%2Fmaster%2FCharacter%2520Images">
+                download the folder here.
+              </a>
+            </li>
+            <li>
+              Dialogue is a little harder, however!
 
-                            Ensure that you press enter if your
-                            dialogue takes up more than one line
-                            to allow it to render properly
-                            (unless you like squished text)
+              Ensure that you press enter if your
+              dialogue takes up more than one line
+              to allow it to render properly
+              (unless you like squished text)
 
-                            Also ensure your dialogue takes up no
-                            more than three lines to ensure it
-                            renders properly.
-                        </li>
-                    </ul>
+              Also ensure your dialogue takes up no
+              more than three lines to ensure it
+              renders properly.
+            </li>
+          </ul>
 
-                    <li>Press the long "render" button.</li>
+          <li>Press the long "render" button.</li>
 
-                    <li>Get the image</li>
-                    <ul>
-                        <li>Press the large download button that
-                            will appear, or</li>
-                        <li>Right click and copy image to clipboard!</li>
-                    </ul>
-                </ol>
-            </div>
-            <hr>
-            Note: The character name input is only an
-            approximate to what will actually be rendered.
-        </div>
+          <li>Get the image</li>
+          <ul>
+            <li>Press the large download button that
+              will appear, or</li>
+            <li>Right click and copy image to clipboard!</li>
+          </ul>
+        </ol>
+      </div>
+      <hr>
+      Note: The character name input is only an
+      approximate to what will actually be rendered.
     </div>
-    <hr id="info-seperator">
+  </div>
+  <hr id="info-seperator">
 
-    <form id="frame_0" class="speech-frame">
-        <div class="settings">
-            <table>
-                <tr>
-                    <td>
-                        <input id="toggle_portrait_0" class="toggle-portrait" type="checkbox" name="enable-portrait" checked onclick="togglePortrait('toggle_portrait_0', 'char_img_0')">
-                        Enable Portrait?
-                    </td>
-                    <td>
-                        <input type="button" name="clear-portrait" value="Clear Portrait" onclick="clearPortrait('char_img_0')">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input id="toggle_disturbed_0" type="checkbox" name="enable-disturbed" value="Enable Disturbed?" onclick="toggleText('toggle_disturbed_0', 'dialogue_0')">
-                        Enable Disturbed Text?
-                    </td>
-                    <td>
-                        <input type="button" name="clear-all-frame" value="Clear All in Frame" onclick="clearFrame('frame_0')">
-                    </td>
-                </tr>
-            </table>
-        </div>
+  <form id="frame_0" class="speech-frame">
+    <div class="settings">
+      <table>
+        <tr>
+          <td>
+            <input id="toggle_portrait_0" class="toggle-portrait" type="checkbox" name="enable-portrait" checked onclick="togglePortrait('toggle_portrait_0', 'char_img_0')">
+            Enable Portrait?
+          </td>
+          <td>
+            <input type="button" name="clear-portrait" value="Clear Portrait" onclick="clearPortrait('char_img_0')">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input id="toggle_disturbed_0" type="checkbox" name="enable-disturbed" value="Enable Disturbed?" onclick="toggleText('toggle_disturbed_0', 'dialogue_0')">
+            Enable Disturbed Text?
+          </td>
+          <td>
+            <input type="button" name="clear-all-frame" value="Clear All in Frame" onclick="clearFrame('frame_0')">
+          </td>
+        </tr>
+      </table>
+    </div>
 
 
-        <div class="top-half">
-            <div class="char-name-wrapper">
-                <div class="wrap-black">
-                    <input id="char_name_0" onkeydown="return event.key != 'Enter';" onchange="this.style.width = 0; this.style.width = this.scrollWidth - 11 + 'px';" type="text" name="Character Name" value="Edit me (character name)" class="wrap-white char-name box">
-                    <!-- Okay, I got lazy here with the inline JS -->
-                </div>
-            </div>
-            <div class="char-pic-wrapper">
-                <div class="wrap-black">
-                    <img id="char_img_0" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" class="wrap-white char-pic box">
-                    <input type="file" name="select-character" class="char-pic-button" onchange="displayPortrait(event, 'char_img_0')" accept="image/*">
-                </div>
-            </div>
+    <div class="top-half">
+      <div class="char-name-wrapper">
+        <div class="wrap-black">
+          <input id="char_name_0" onkeydown="return event.key != 'Enter';" onchange="this.style.width = 0; this.style.width = this.scrollWidth - 11 + 'px';" type="text" name="Character Name" value="Edit me (character name)"
+            class="wrap-white char-name box">
+          <!-- Okay, I got lazy here with the inline JS -->
         </div>
-        <div class="bottom-half">
-            <div class="wrap-black">
-                <textarea id='dialogue_0' class="dialogue-box wrap-white box" wrap="off">Edit me (dialogue)</textarea>
-            </div>
+      </div>
+      <div class="char-pic-wrapper">
+        <div class="wrap-black">
+          <img id="char_img_0" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" class="wrap-white char-pic box">
+          <input type="file" name="select-character" class="char-pic-button" onchange="displayPortrait(event, 'char_img_0')" accept="image/*">
         </div>
-        <br>
-        <input type="button" name="render" value="Render! (output will appear below)" onclick="renderCanvas('frame_0', 'download_0'); displayDownload('download_0')">
-        <canvas id="output_0" width="608" height="230"></canvas>
-        <a href="#" class="download" id="download_0" download="output.png" >Download Image</a>
-    </form>
+      </div>
+    </div>
+    <div class="bottom-half">
+      <div class="wrap-black">
+        <textarea id='dialogue_0' class="dialogue-box wrap-white box" wrap="off">Edit me (dialogue)</textarea>
+      </div>
+    </div>
+    <br>
+    <input type="button" name="render" value="Render! (output will appear below)" onclick="renderCanvas('frame_0', 'download_0'); displayDownload('download_0')">
+    <canvas id="output_0" width="608" height="230"></canvas>
+    <a href="#" class="download" id="download_0" download="output.png">Download Image</a>
+  </form>
 
 </body>
 

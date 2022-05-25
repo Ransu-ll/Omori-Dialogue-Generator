@@ -19,88 +19,89 @@ img_portrait.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHIAAAByCAYAAA
 
 function renderCanvas(idFrame, idDownload) {
 
-    const frame = document.getElementById(idFrame);
-    let canvas = frame.getElementsByTagName("canvas")[0];
-    canvas.style.display = "block";
-    let ctx = canvas.getContext("2d");
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    let img_char = new Image();
+  const frame = document.getElementById(idFrame);
+  let canvas = frame.getElementsByTagName("canvas")[0];
+  canvas.style.display = "block";
+  let ctx = canvas.getContext("2d");
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  let img_char = new Image();
 
-    // Load character image and portrait box
-    if (document.getElementsByClassName("toggle-portrait")[0].checked) {
-        img_char.src = frame.getElementsByTagName("img")[0].src;
-        ctx.drawImage(img_portrait, 494, 0);
-        ctx.drawImage(img_char, 499, 5, 104, 104);
-    }
-    // Load dialogue box
-    ctx.drawImage(img_dialogue, 0, 118);
+  // Load character image and portrait box
+  if (document.getElementsByClassName("toggle-portrait")[0].checked) {
+    img_char.src = frame.getElementsByTagName("img")[0].src;
+    ctx.drawImage(img_portrait, 494, 0);
+    ctx.drawImage(img_char, 499, 5, 104, 104);
+  }
+  // Load dialogue box
+  ctx.drawImage(img_dialogue, 0, 118);
 
 
-    // Load character name details
-    let charName = document.getElementsByClassName("char-name")[0].value;
-    ctx.font = "28px OMORI_MAIN";
+  // Load character name details
+  let charName = document.getElementsByClassName("char-name")[0].value;
+  ctx.font = "28px OMORI_MAIN";
 
-    // Load character name box
-    let a = ctx.measureText(charName)
-    let lengthOfCharName = a.width;
-    let fullRectangleWidth = lengthOfCharName + 24;
+  // Load character name box
+  let a = ctx.measureText(charName)
+  let lengthOfCharName = a.width;
+  let fullRectangleWidth = lengthOfCharName + 24;
 
-    // black outside
-    ctx.fillStyle = "black";
-    ctx.fillRect(0, 70, fullRectangleWidth, 44);
-    // white outside
-    ctx.fillStyle = "white";
-    ctx.fillRect(1, 71, fullRectangleWidth-2, 42);
-    // black inside
-    ctx.fillStyle = "black";
-    ctx.fillRect(4, 74, fullRectangleWidth-8, 36);
+  // black outside
+  ctx.fillStyle = "black";
+  ctx.fillRect(0, 70, fullRectangleWidth, 44);
+  // white outside
+  ctx.fillStyle = "white";
+  ctx.fillRect(1, 71, fullRectangleWidth - 2, 42);
+  // black inside
+  ctx.fillStyle = "black";
+  ctx.fillRect(4, 74, fullRectangleWidth - 8, 36);
 
-    // Load character name
-    ctx.fillStyle = "white";
-    ctx.fillText(charName, 12, 96);
+  // Load character name
+  ctx.fillStyle = "white";
+  ctx.fillText(charName, 12, 96);
 
-    // Load textarea
-    let dialogue = document.getElementsByClassName("dialogue-box")[0].value;
-    let splitDialogue = dialogue.split("\n");
+  // Load textarea
+  let dialogue = document.getElementsByClassName("dialogue-box")[0].value;
+  let splitDialogue = dialogue.split("\n");
 
-    // 29px between lines
-    // max 585px
-    function insertDialogue(context, textToSplit) {
-        let yBase = 150;
-        for (let i = 0; i < textToSplit.length; i++) {
-        context.fillText(textToSplit[i], 18, yBase, 568);
-        yBase += 29;
-        };
+  // 29px between lines
+  // max 585px
+  function insertDialogue(context, textToSplit) {
+    let yBase = 150;
+    for (let i = 0; i < textToSplit.length; i++) {
+      context.fillText(textToSplit[i], 18, yBase, 568);
+      yBase += 29;
     };
-    function changeDownloadLink() {
-      let downloadLink = document.getElementById(idDownload);
-      canvas = frame.getElementsByTagName("canvas")[0];
-      downloadLink.href = canvas.toDataURL("image/png");
-    }
+  };
 
-    // Had to be explicit here with everthing, otherwise dialogue would just
-    // refuse to render.
-    ctx.fillStyle = "white";
-    if (document.getElementById("toggle_disturbed_0").checked) {
-        disturbedFont.load().then(function() {
-            ctx.font = "28px OMORI_DISTURBED";
-            insertDialogue(ctx, splitDialogue);
-            changeDownloadLink();
-        });
-    } else {
-        ctx.font = "28px OMORI_MAIN";
-        insertDialogue(ctx, splitDialogue);
-        changeDownloadLink();
-    }
+  function changeDownloadLink() {
+    let downloadLink = document.getElementById(idDownload);
+    canvas = frame.getElementsByTagName("canvas")[0];
+    downloadLink.href = canvas.toDataURL("image/png");
+  }
+
+  // Had to be explicit here with everthing, otherwise dialogue would just
+  // refuse to render.
+  ctx.fillStyle = "white";
+  if (document.getElementById("toggle_disturbed_0").checked) {
+    disturbedFont.load().then(function() {
+      ctx.font = "28px OMORI_DISTURBED";
+      insertDialogue(ctx, splitDialogue);
+      changeDownloadLink();
+    });
+  } else {
+    ctx.font = "28px OMORI_MAIN";
+    insertDialogue(ctx, splitDialogue);
+    changeDownloadLink();
+  }
 
 
 
-    /*
-    Credits - giving credit where credit is due.
+  /*
+  Credits - giving credit where credit is due.
 
-    Noel A Rodriguez, https://dev.to/thehomelessdev/how-to-add-a-custom-font-to-an-html-canvas-1m3g
-    Jerry, https://stackoverflow.com/a/66969479
-    https://dopiaza.org/tools/datauri/index.php
+  Noel A Rodriguez, https://dev.to/thehomelessdev/how-to-add-a-custom-font-to-an-html-canvas-1m3g
+  Jerry, https://stackoverflow.com/a/66969479
+  https://dopiaza.org/tools/datauri/index.php
 
-    */
+  */
 }

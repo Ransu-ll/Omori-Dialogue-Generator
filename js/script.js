@@ -1,15 +1,15 @@
 function toggleInfo(idToggle, idLink) {
-    let extendedDisplay = document.getElementById(idToggle);
-    let toggleLink = document.getElementById(idLink);
+  let extendedDisplay = document.getElementById(idToggle);
+  let toggleLink = document.getElementById(idLink);
 
-    if (extendedDisplay.style.display == 'none' || extendedDisplay.style.display == '') {
-        extendedDisplay.style.display = 'block';
-        toggleLink.text = 'How to use? (show less)';
-    } else {
-        extendedDisplay.style.display = 'none';
-        toggleLink.text = 'How to use? (show more)';
-    }
-    console.log("toggled display!")
+  if (extendedDisplay.style.display == 'none' || extendedDisplay.style.display == '') {
+    extendedDisplay.style.display = 'block';
+    toggleLink.text = 'How to use? (show less)';
+  } else {
+    extendedDisplay.style.display = 'none';
+    toggleLink.text = 'How to use? (show more)';
+  }
+  console.log("toggled display!")
 };
 
 function togglePortrait(idCheckbox, idPortrait) {
@@ -26,9 +26,9 @@ function togglePortrait(idCheckbox, idPortrait) {
 };
 
 function clearPortrait(identifier) {
-    let image = document.getElementById(identifier);
-    image.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
-    image.nextElementSibling.value = null
+  let image = document.getElementById(identifier);
+  image.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
+  image.nextElementSibling.value = null
 };
 
 
@@ -40,7 +40,7 @@ function toggleText(idCheckbox, idTextarea) {
   if (checkbox.checked) {
     textarea.style.fontFamily = 'OMORI_DISTURBED';
   } else {
-      textarea.style.fontFamily = 'OMORI_MAIN';
+    textarea.style.fontFamily = 'OMORI_MAIN';
   }
 };
 
@@ -62,12 +62,12 @@ function clearFrame(identifier) {
 };
 
 function displayPortrait(event, identifier) {
-    // Adapted from https://www.webtrickshome.com/forum/how-to-display-uploaded-image-in-html-using-javascript, by Jiwan Thapa
-    let image = document.getElementById(identifier);
-    image.src = URL.createObjectURL(event.target.files[0])
+  // Adapted from https://www.webtrickshome.com/forum/how-to-display-uploaded-image-in-html-using-javascript, by Jiwan Thapa
+  let image = document.getElementById(identifier);
+  image.src = URL.createObjectURL(event.target.files[0])
 };
 
 function displayDownload(identifier) {
-    let downloadButton = document.getElementById(identifier);
-    downloadButton.style.display = 'block';
+  let downloadButton = document.getElementById(identifier);
+  downloadButton.style.display = 'block';
 };
