@@ -35,7 +35,6 @@ function clearPortrait(identifier) {
 function toggleText(idCheckbox, idTextarea) {
   let checkbox = document.getElementById(idCheckbox);
   let textarea = document.getElementById(idTextarea);
-  let fontFamily = window.getComputedStyle(textarea, 'font-family').getPropertyValue('font-family');
 
   if (checkbox.checked) {
     textarea.style.fontFamily = 'OMORI_DISTURBED';
@@ -47,8 +46,6 @@ function toggleText(idCheckbox, idTextarea) {
 function clearFrame(identifier) {
   let frame = document.getElementById(identifier);
   // The below needs to be refactored at some point, OH GOD
-  let inputList = frame.getElementsByTagName('input');
-  let charName = inputList[4];
   let download = frame.getElementsByTagName('a')[0];
   // End of refactor section
   let image = frame.getElementsByTagName('img')[0];
