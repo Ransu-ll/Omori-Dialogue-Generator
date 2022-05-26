@@ -173,6 +173,7 @@ a {
     height: 95px !important;
     overflow: hidden;
     resize: none;
+    margin: 0;
 }
 
 /*******/
