@@ -62,16 +62,43 @@ function renderCanvas(idFrame, idDownload) {
   // Load textarea
   let dialogue = document.getElementsByClassName("dialogue-box")[0].value;
   let splitDialogue = dialogue.split("\n");
+  console.log(splitDialogue);
 
   // 29px between lines
   // max 585px
-  function insertDialogue(context, textToSplit) {
-    let yBase = 150;
-    for (let i = 0; i < textToSplit.length; i++) {
-      context.fillText(textToSplit[i], 18, yBase, 568);
-      yBase += 29;
-    };
-  };
+
+  function insertDialogue(context, unsplitText) {
+    // Source/Adapted from: https://gh.princessrtfm.com/niko.html
+    // Check out https://github.com/PrincessRTFM, they're hella huge brain
+    // for the logic of this thing.
+    let yBase = 150; // Determined from doing some alignment in Paint.NET
+    let maxLineLength = 572; // Determined by same method
+    let splitText = unsplitText.split("\n");
+
+    for (let lineNo = 0; lineNo < splitText.length; lineNo++) {
+      console.log(lineNo);
+      if (lineNo >= 3) {
+        alert('Only a maximum of three lines can fit. The fourth line and so has not been rendered.');
+        break;
+      }
+      let line = splitText[lineNo];
+
+      // Check if
+      if (context.measureText(line).width > maxLineLength) {
+        const words = line.split(/\s/u);
+        for (let word = words.length; word > 0; word--) {
+          const left = words.slice(0, word).join(" ");
+          debugger;
+          if (context.measureText(left).width <= maxLineLength) {
+            line = left;
+            splitText.splice(lineNo + 1, 0, words.slice(word).join(" "));
+            break;
+          }
+        }
+      }
+      context.fillText(line, 18, yBase + (29 * lineNo), maxLineLength);
+    }
+  }
 
   function changeDownloadLink() {
     let downloadLink = document.getElementById(idDownload);
@@ -85,12 +112,12 @@ function renderCanvas(idFrame, idDownload) {
   if (document.getElementById("toggle_disturbed_0").checked) {
     disturbedFont.load().then(function() {
       ctx.font = "28px OMORI_DISTURBED";
-      insertDialogue(ctx, splitDialogue);
+      insertDialogue(ctx, dialogue);
       changeDownloadLink();
     });
   } else {
     ctx.font = "28px OMORI_MAIN";
-    insertDialogue(ctx, splitDialogue);
+    insertDialogue(ctx, dialogue);
     changeDownloadLink();
   }
 
